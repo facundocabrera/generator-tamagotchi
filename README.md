@@ -21,6 +21,9 @@
 
     `npm link`
 
+> NOTE: ONLY WINDOWS ENVIROMENT If you change from branches yo must execute
+  `npm rm generator-deloite` and `npm link` to update the generator
+
 ## Usage
 
 ### WebApp creation
@@ -47,4 +50,4 @@
 
     `grunt server`
 
-For more information: [livereload](docs/0006-livereload.md)
+For more information: [livereload](app/templates/docs/0006-livereload.md)

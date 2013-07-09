@@ -40,14 +40,14 @@ module.exports = function(grunt) {
         livereload: true
       },
       html: {
-        files: ['<%= yeoman.app %>/*.html']
+        files: ['<%%= yeoman.app %>/*.html']
       },
       js: {
-        files: ['<%= yeoman.app %>/**/*.js', '!<%= yeoman.app %>/vendor/**/*.js'],
+        files: ['<%%= yeoman.app %>/**/*.js', '!<%%= yeoman.app %>/vendor/**/*.js'],
         tasks: ['jshint']
       },
       less: {
-        files: ['<%= yeoman.app %>/assets/less/**/*.less'],
+        files: ['<%%= yeoman.app %>/assets/less/**/*.less'],
         tasks: ['less']
       }
     },
