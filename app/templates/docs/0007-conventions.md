@@ -20,7 +20,8 @@ On Mac or Linux:
 
 ### Code Style
 
-[Globant style](https://github.com/globant-ui/javascript-style-guide)
+- [Globant style](https://github.com/globant-ui/javascript-style-guide)
+- [YUI documentation style guide](http://yui.github.io/yuidoc/syntax/index.html)
 
 ### Sublime
 
@@ -64,3 +65,4 @@ On Mac or Linux:
 ### Sublime
 
 [CSS Sorter](http://csscomb.com/)
+[Prefixr](http://wbond.net/sublime_packages/prefixr)
