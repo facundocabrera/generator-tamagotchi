@@ -8,7 +8,15 @@
 
 'use strict';
 
-module.exports = function (grunt) {
+//
+// Helper for connect. The idea behind it is to load a middle with a given
+// directory.
+//
+var mountFolder = function(connect, dir) {
+  return connect.static(require('path').resolve(dir));
+};
+
+module.exports = function(grunt) {
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
@@ -20,6 +28,22 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     yeoman: yeomanConfig,
+
+    ////
+    // Watch
+    //
+    // @todo Review the unification of .tmp folder as a temporal storage for
+    //       this file.
+    ////
+    watch: {
+      options: {
+        livereload: true,
+      },
+      less: {
+        files: ['<%%= yeoman.app %>/assets/less/**/*.less'],
+        tasks: ['less']
+      }
+    },
 
     ////
     // Less
@@ -240,9 +264,39 @@ module.exports = function (grunt) {
           specs: 'test/spec/{,*/}*.js'
         }
       }
+    },
+
+    ////
+    // grunt-contrib-connect will serve the files of the project
+    // on specified port and hostname
+    ////
+    connect: {
+      all: {
+        options: {
+          port: 9000,
+          hostname: "0.0.0.0",
+          // Prevents Grunt to close just after the task (starting the server) completes
+          // This will be removed later as `watch` will take care of that
+          // keepalive: true,
+
+          // Livereload needs connect to insert a Javascript snippet
+          // in the pages it serves. This requires using a custom connect
+          // middleware
+          middleware: function(connect, options) {
+            return [
+              mountFolder(connect, yeomanConfig.app),
+              // Load the middleware provided by the livereload plugin
+              // that will take care of inserting the snippet
+              // Serve the project folder
+              connect.static(options.base)
+            ];
+          }
+        }
+      }
     }
   });
 
+  // Build Task
   grunt.registerTask('build', [
     'clean',
     'build-static',
@@ -287,5 +341,12 @@ module.exports = function (grunt) {
         'useminPrepare',
         'usemin'
       ]);
+
+  // Local server with livereload by default
+  grunt.registerTask('server', [
+    'connect',
+     // Starts monitoring the folders and keep Grunt alive
+    'watch'
+  ]);
 
 };
