@@ -22,7 +22,7 @@
     `npm link`
 
 > NOTE: ONLY WINDOWS ENVIROMENT If you change between branches you must execute
-  `npm rm generator-deloite` and `npm link` to update the generator
+  `npm rm -g generator-deloite` and `npm link` to update the generator
 
 ## Usage
 
