@@ -46,6 +46,7 @@ DeloitteGenerator.prototype.askFor = function askFor() {
  */
 DeloitteGenerator.prototype.app = function app() {
   this.mkdir('app');
+  this.mkdir('docs');
 
   this.mkdir('app/controllers');
   this.mkdir('app/collections');
@@ -124,4 +125,15 @@ DeloitteGenerator.prototype.less = function() {
   this.copy('less/application.less', 'app/assets/less/application.less');
   this.copy('less/config.dev.less', 'app/assets/less/config.dev.less');
   this.copy('less/config.less', 'app/assets/less/config.less');
+};
+
+/**
+ * Base documentation
+ */
+DeloitteGenerator.prototype.docs = function() {
+  this.copy('docs/0000-todo-list.md', 'docs/0000-todo-list.md');
+  this.copy('docs/0001-dwa-first-use.md', 'docs/0001-dwa-first-use.md');
+  this.copy('docs/0002-application-structure.md', 'docs/0002-application-structure.md');
+  this.copy('docs/0003-web-components.md', 'docs/0003-web-components.md');
+  this.copy('docs/0005-disable-cors-for-services-integration.md', 'docs/0005-disable-cors-for-services-integration.md');
 };
