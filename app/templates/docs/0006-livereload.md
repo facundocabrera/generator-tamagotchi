@@ -1,19 +1,12 @@
 # LiveReload
 
-## Install plugin
+## Install browser plugin
 
 - [Chrome](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei)
 - [Firefox](https://addons.mozilla.org/en-US/firefox/addon/livereload/)
 - [Opera](https://addons.opera.com/es/extensions/details/livereload-201-beta/?display=en)
 
 > For IE you **MUST** use F5 as an old school guy.
-
-## Grunt deps
-
-All the depencies are already included into the package.json used in the project you are 
-creating with the generator. 
-
-DO NOT FORGET THE `npm install` at the root folder.
 
 ## Howto use it
 

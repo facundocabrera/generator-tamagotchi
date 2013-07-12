@@ -43,11 +43,3 @@
 - Run the sub-generator for components skeleton (you must be at the app root)
 
     `yo deloitte:component my-first-component`
-
-### Server
-
-- By default you have available a local web server with livereload support
-
-    `grunt server`
-
-For more information: [livereload](app/templates/docs/0006-livereload.md)

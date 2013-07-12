@@ -1,121 +1,124 @@
-# Deloitte Web Application (DWA) - Project
+# Project directory layout
 
-[Requirements before starts reading this](./0001-dwa-first-use.md)
+- [app][app]
+    + [assets][app/assets]
+        * [css][app/assets/css]
+        * [fonts][app/assets/fonts]
+        * [less][app/assets/less]
+            - [application.less][app/assets/less/application.less]
+            - [config.dev.less][app/assets/less/config.dev.less]
+            - [config.less][app/assets/less/config.less]
+        * [images][app/assets/images]
 
-## Project directory layout
+    + [collections][app/collections]
+    + [controllers][app/controllers]
+    + [models][app/models]
+    + [templates][app/templates]
+    + [views][app/views]
+    + [app.js][app/app.js]
+    + [config.js][app/config.js]
+    + [main.js][app/main.js]
 
-* [www][www]
-    - [app][www/app]
-        + [collections][www/app/collections]
-        + [controllers][www/app/controllers]
-        + [models][www/app/models]
-        + [templates][www/app/templates]
-            * [namespace][www/app/templates/namespace]
-        + [tests][www/app/tests]
-            * TODO
-        + [views][www/app/views]
-            * [namespace][www/app/views/namespace]
-            * [layouts][www/app/views/layouts]
-        + [app.js][www/app/app.js]
-        + [config.js][www/app/config.js]
-        + [main.js][www/app/main.js]
 
-    - [lib][www/lib]
-        + [assets][www/lib/assets]
-            * [css][www/lib/assets/css]
-            * [less][www/lib/assets/less]
-                - [application.less][www/lib/assets/less]
-            * [images][www/lib/assets/images]
+        + [components][lib/components]
+            * [namespace][lib/components]
 
-        + [components][www/lib/components]
-            * [namespace][www/lib/components]
+        + [helpers][lib/helpers]
+            * [namespace][lib/helpers]
 
-        + [helpers][www/lib/helpers]
-            * [namespace][www/lib/helpers]
+    - [vendor][vendor]
+        + [namespace][vendor/namespace]
 
-    - [vendor][www/vendor]
-        + [namespace][www/vendor/namespace]
+    - [index.html][vendor/index.html]
 
-    - [index.html][www/vendor/index.html]
+    - [Gruntfile.js][vendor/Gruntfile.js]
 
-    - [Gruntfile.js][www/vendor/Gruntfile.js]
-
-    - [package.json][www/vendor/package.json]
-
-### Project
-[www]: #project
+    - [package.json][vendor/package.json]
 
 ### Application
-[www/app]: #application
+[app]: #application
+
+Inside this folder you will find everything about the application
+we are building.
 
 #### Collections
-[www/app/collections]: #collections
+[app/collections]: #collections
+
+Backbone collections will be all placed in this directory. If you
+consider necessary, create namespaces.
 
 #### Controllers
-[www/app/controllers]: #controllers
+[app/controllers]: #controllers
+
+All the global controllers must be placed here. The idea is mainly
+for controllers provided by Marionette.
 
 #### Models
-[www/app/models]: #models
+[app/models]: #models
+
+Backbone models will be all placed in this directory. If you
+consider necessary, create namespaces.
 
 #### Templates
-[www/app/templates]: #templates
+[app/templates]: #templates
 
-##### Template namespaces
-[www/app/templates/namespace]: #template-namespaces
+All the templates which will be reused across several
+Backbone/Marionette Views must be placed here.
 
-#### Tests
-[www/app/tests]: #tests
+Remember we are going to use underscore templates by default. One
+conventions is the following: `_myTemplate.html`.
+
+Pay attention to the _ at the beginning.
+
+If you consider necessary, create namespaces.
 
 #### Views
-[www/app/views]: #views
+[app/views]: #views
 
-##### Views namespaces
-[www/app/views/namespace]: #views-namespaces
-
-##### Views layouts
-[www/app/views/layouts]: #views-layouts
+All the Views which will be reused across several components must
+be placed here.
 
 ### Application Libraries
-[www/lib]: #application-libraries
+[lib]: #application-libraries
 
 #### Assets
-[www/lib/assets]: #assets
+[lib/assets]: #assets
 
 ##### CSS
-[www/lib/assets/css]: #css
+[lib/assets/css]: #css
 
 ##### LESS
-[www/lib/assets/less]: #less
+[lib/assets/less]: #less
 
 ##### Images
-[www/lib/assets/images]: #images
+[lib/assets/images]: #images
 
 #### Components
-[www/lib/components]: #components
+[lib/components]: #components
 
 #### Helpers
-[www/lib/helpers]: #helpers
+[lib/helpers]: #helpers
 
 ### Vendor
-[www/vendor]: #vendor
+[vendor]: #vendor
 
 #### Vendor namespaces
-[www/vendor/namespace]: #vendor-namespaces
+[vendor/namespace]: #vendor-namespaces
 
 ### index.html
-[www/vendor/index.html]: #indexhtml
+[vendor/index.html]: #indexhtml
 
 #### App.js
-[www/app/app.js]: #appjs
+[app/app.js]: #appjs
 
 #### Config.js
-[www/app/config.js]: #configjs
+[app/config.js]: #configjs
 
 #### Main.js
-[www/app/main.js]: mainjs
+[app/main.js]: mainjs
 
 ### Gruntfile.js
-[www/vendor/Gruntfile.js]: #gruntfilejs
+[vendor/Gruntfile.js]: #gruntfilejs
 
 ### package.json
-[www/vendor/package.json]: #packagejson
+[vendor/package.json]: #packagejson

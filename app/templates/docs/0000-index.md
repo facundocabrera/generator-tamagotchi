@@ -3,17 +3,11 @@
 
 1. [Conventions](./0007-conventions.md)
 
-2. [Framework the first touch](./0001-application-structure.md)
+2. [First touch](./0001-first-touch.md)
 
 2. [Project folder structure](./0002-application-structure.md)
 
 3. [Web Components](./0003-web-components.md)
-
-# Tools
-
-1. Development support (Pending documentation)
-
-2. Build support (Pending documentation)
 
 # Howtos
 

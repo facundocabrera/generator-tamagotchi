@@ -131,9 +131,12 @@ DeloitteGenerator.prototype.less = function() {
  * Base documentation
  */
 DeloitteGenerator.prototype.docs = function() {
-  this.copy('docs/0000-todo-list.md', 'docs/0000-todo-list.md');
-  this.copy('docs/0001-dwa-first-use.md', 'docs/0001-dwa-first-use.md');
+  this.copy('docs/0000-index.md', 'docs/0000-index.md');
+  this.copy('docs/0001-first-touch.md', 'docs/0001-first-touch.md');
   this.copy('docs/0002-application-structure.md', 'docs/0002-application-structure.md');
   this.copy('docs/0003-web-components.md', 'docs/0003-web-components.md');
   this.copy('docs/0005-disable-cors-for-services-integration.md', 'docs/0005-disable-cors-for-services-integration.md');
+  this.copy('docs/0006-livereload.md', 'docs/0006-livereload.md');
+  this.copy('docs/0007-conventions.md', 'docs/0007-conventions.md');
+  this.copy('docs/0008-git-tfs.md', 'docs/0008-git-tfs.md');
 };

@@ -4,9 +4,10 @@
   "dependencies": {
     "requirejs"      : "lastest",
     "requirejs-text" : "lastest",
-    "backbone-amd"   : "lastest",
-    "underscore-amd" : "lastest",
+    "backbone"       : "lastest",
+    "marionette"     : "lastest",
+    "underscore"     : "lastest",
     "modernizr"      : "lastest",
-    "jquery"         : "1.10.1"
+    "jquery"         : "~1.10.2"
   }
 }
