@@ -15,4 +15,4 @@
 
 2. [NGINX as Reverse Proxy (Prevent CORS problems)](https://github.com/dendril/nginx)
 
-3. [Git integration with TFS](./0008-conventions.md)
+3. [Git integration with TFS](./0008-git-tfs.md)
