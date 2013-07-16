@@ -76,7 +76,8 @@ require(['jst!templates/_module.html'],
     function (template) {
         template(data)
     }
-);```
+);
+```
 
 ***Filename convention:*** _(filename).html
 
