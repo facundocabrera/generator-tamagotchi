@@ -66,3 +66,19 @@ On Mac or Linux:
 
 [CSS Sorter](http://csscomb.com/)
 [Prefixr](http://wbond.net/sublime_packages/prefixr)
+
+##Underscore Templates
+Using JST to precompile templates in production.
+
+To use templates do the following
+```javascript
+require(['jst!templates/_module.html'],
+    function (template) {
+        template(data)
+    }
+);```
+
+***Filename convention:*** _(filename).html
+
+### Sublime
+[EJS](https://github.com/falsefalse/sublime-ejs)

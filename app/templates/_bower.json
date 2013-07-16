@@ -8,6 +8,7 @@
     "marionette"     : "lastest",
     "underscore"     : "lastest",
     "modernizr"      : "lastest",
-    "jquery"         : "~1.10.2"
+    "jquery"         : "~1.10.2",
+    "require-jst"    : "git@github.com:ahutchings/require-jst.git"
   }
 }
