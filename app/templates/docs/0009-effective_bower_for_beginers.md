@@ -14,6 +14,8 @@ Tag releases should be annotated tags, but in this case it's not neccesary. If y
 
 > "For “release” tags (e.g. V1.0.0) it is conventional for these to be annotated tags; it is relatively rare that you will push a lightweight tag to a central repository."
 
+* Here we will use non-annotated tags:
+
 `git tag -a 0.2.0 09c677c76e -m 'v0.2.0'`
 
 `git tag -a 0.3.0 -m 'v0.3.0 using HEAD as hash'`
@@ -31,13 +33,17 @@ Tag releases should be annotated tags, but in this case it's not neccesary. If y
 
 ### Remove a tag
 
-`git tag -d <tag>`
-
 #### FYI: About deleting tags
 
 > Deleting tags are OK if you never made them publicly available, but you really should avoid deleting tags 
 once you’ve pushed them to a publicly readable location. Similarly, you shouldn’t change a tag once it has 
 been released to the wild either.
+
+- If we need to delete any we should remove it locally:
+
+`git tag -d <tag>`
+
+- Delete it remotely:
 
 `git push origin :refs/tags/<tag>`
 
