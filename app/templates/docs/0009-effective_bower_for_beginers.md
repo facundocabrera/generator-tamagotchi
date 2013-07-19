@@ -4,7 +4,15 @@
 
 **Bower only supports SEMVER using git tags (to make it works correctly).**
 
+> We should follow the specification listed on http://semver.org/spec/v2.0.0.html
+
 ### Tag your releases
+
+#### FYI: non-annotated vs annotated tags
+
+Tag releases should be annotated tags, but in this case it's not neccesary. If you're interested:
+
+> "For “release” tags (e.g. V1.0.0) it is conventional for these to be annotated tags; it is relatively rare that you will push a lightweight tag to a central repository."
 
 `git tag -a 0.2.0 09c677c76e -m 'v0.2.0'`
 
@@ -25,6 +33,12 @@
 
 `git tag -d <tag>`
 
+#### FYI: About deleting tags
+
+> Deleting tags are OK if you never made them publicly available, but you really should avoid deleting tags 
+once you’ve pushed them to a publicly readable location. Similarly, you shouldn’t change a tag once it has 
+been released to the wild either.
+
 `git push origin :refs/tags/<tag>`
 
 ### List available releases (tags).
@@ -38,7 +52,7 @@ tag pointing to the last commit we are interested to be available for
 everyone.
 
 The suggested schema is: keep `master` as the branch where all the tag are
-applied. Create as many branches you need for development but at the end it's 
+applied. Create as many branches as you need for development but at the end it's 
 important to finally integrate the changes into master plus tag the last commit.
 
 ## What I need to do in my root project?
