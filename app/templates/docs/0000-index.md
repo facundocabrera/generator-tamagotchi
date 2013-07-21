@@ -5,9 +5,11 @@
 
 2. [First touch](./0001-first-touch.md)
 
-2. [Project folder structure](./0002-application-structure.md)
+3. [Project folder structure](./0002-application-structure.md)
 
-3. [Web Components](./0003-web-components.md)
+4. [Web Components](./0003-web-components.md)
+
+5. [Bower](./0009-effective_bower_for_beginers.md)
 
 # Howtos
 
