@@ -1,14 +1,14 @@
 {
   "name": "<%= _.slugify(appname) %>",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "dependencies": {
-    "requirejs"      : "lastest",
-    "requirejs-text" : "lastest",
-    "backbone"       : "lastest",
-    "marionette"     : "lastest",
-    "underscore"     : "lastest",
-    "modernizr"      : "lastest",
-    "jquery"         : "~1.10.2",
-    "require-jst"    : "git@github.com:ahutchings/require-jst.git"
+    "requirejs"   : "2.1.8",
+    "text"        : "git://github.com/requirejs/text#2.0.9",
+    "jst"         : "git://github.com/ahutchings/require-jst#*",
+    "backbone"    : "1.0.0",
+    "marionette"  : "1.0.4",
+    "underscore"  : "1.5.1",
+    "modernizr"   : "2.6.2",
+    "jquery"      : "1.10.2"
   }
 }
