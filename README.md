@@ -8,7 +8,7 @@
 
 - Clone the project
 
-    `git clone https://github.com/dendril/generator-deloitte`
+    `git clone git@github.com:dendril/generator-deloitte.git`
 
 - Create a branch for your code (only required if you will do a change inside
   the generator).
