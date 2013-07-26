@@ -47,7 +47,10 @@ module.exports = function(grunt) {
         tasks: ['jshint']
       },
       less: {
-        files: ['<%%= yeoman.app %>/assets/less/**/*.less'],
+        files: [
+          '<%%= yeoman.app %>/assets/less/**/*.less',
+          '<%%= yeoman.app %>/components/**/*.less'
+        ],
         tasks: ['less']
       }
     },
