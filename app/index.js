@@ -4,21 +4,22 @@ var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 
-// Common JS export
-module.exports = Tamagotchi;
-
 /**
  * @constructor
  */
-function Tamagotchi(args, options, config) {
+function Tamagotchi() {
   yeoman.generators.Base.apply(this, arguments);
 
   this.on('end', function () {
-    this.installDependencies({ skipInstall: options['skip-install'] });
+    console.log(
+      '\nPlease run ' + 'npm install & bower install '.yellow.bold + 'to install all the dependencies' + '\n'
+    );
   });
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
-};
+
+  console.log('Welcome to '.yellow.bold + 'Deloitte'.red + ' web app generator'.yellow.bold + '\n');
+}
 
 util.inherits(Tamagotchi, yeoman.generators.Base);
 
@@ -36,7 +37,7 @@ Tamagotchi.prototype.askFor = function askFor() {
 
   prompts = [];
 
-  this.prompt(prompts, function (props) {
+  this.prompt(prompts, function () {
     cb();
   }.bind(this));
 };
@@ -140,3 +141,6 @@ Tamagotchi.prototype.docs = function() {
   this.copy('docs/0007-conventions.md', 'docs/0007-conventions.md');
   this.copy('docs/0008-git-tfs.md', 'docs/0008-git-tfs.md');
 };
+
+// Common JS export
+module.exports = Tamagotchi;
