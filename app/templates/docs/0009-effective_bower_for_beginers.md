@@ -1,5 +1,24 @@
 # Effective bower usage for beginners
 
+## Basic system configurations
+
+### For windows developers
+
+1. Add the environment variable `HTTP_PROXY=<proxy_host>:<proxy_port>`
+2. `git config --global url."https://".insteadOf "git://"`
+    1. **NOTE: this will break any dependency which is a private repository.**
+
+### For OSX/Linux developers
+
+Add to .bash_profile the following lines:
+
+```bash
+export HTTP_PROXY=<proxy_host>:<proxy_port>
+export HTTPS_PROXY=$HTTP_PROXY
+export PROXY=$HTTP_PROXY
+export ALL_PROXY=$HTTP_PROXY
+```
+
 ## What do I need to do in my reusable project?
 
 **Bower only supports [SEMVER](http://semver.org/spec/v2.0.0.html) using git tags (to make it works correctly).**
