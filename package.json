@@ -18,7 +18,7 @@
     "url": "git://github.com/dendril/generator-tamagotchi.git"
   },
   "dependencies": {
-    "yeoman-generator": "~0.10.2"
+    "yeoman-generator": "~0.12.2"
   },
   "engines": {
     "node": ">= 0.10"
