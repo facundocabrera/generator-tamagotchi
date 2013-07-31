@@ -18,29 +18,10 @@ function Tamagotchi() {
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 
-  console.log('Welcome to '.yellow.bold + 'Deloitte'.red + ' web app generator'.yellow.bold + '\n');
+  console.log('Welcome to '.yellow.bold + 'Tamagotchi'.red + ' web app generator'.yellow.bold + '\n');
 }
 
 util.inherits(Tamagotchi, yeoman.generators.Base);
-
-/**
- * Configuration
- */
-Tamagotchi.prototype.askFor = function askFor() {
-  var cb = this.async(),
-      welcome,
-      prompts;
-
-  // welcome message
-  welcome = 'Welcome to '.yellow.bold + 'Tamagotchi'.red + ' web app generator'.yellow.bold + '\n';
-  console.log(welcome);
-
-  prompts = [];
-
-  this.prompt(prompts, function () {
-    cb();
-  }.bind(this));
-};
 
 /**
  * Directory structure
