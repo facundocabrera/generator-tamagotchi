@@ -5,12 +5,12 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 
 // Common JS export
-module.exports = DeloitteGenerator;
+module.exports = Tamagotchi;
 
 /**
  * @constructor
  */
-function DeloitteGenerator(args, options, config) {
+function Tamagotchi(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
 
   this.on('end', function () {
@@ -20,18 +20,18 @@ function DeloitteGenerator(args, options, config) {
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 };
 
-util.inherits(DeloitteGenerator, yeoman.generators.Base);
+util.inherits(Tamagotchi, yeoman.generators.Base);
 
 /**
  * Configuration
  */
-DeloitteGenerator.prototype.askFor = function askFor() {
+Tamagotchi.prototype.askFor = function askFor() {
   var cb = this.async(),
       welcome,
       prompts;
 
   // welcome message
-  welcome = 'Welcome to '.yellow.bold + 'Deloitte'.red + ' web app generator'.yellow.bold + '\n';
+  welcome = 'Welcome to '.yellow.bold + 'Tamagotchi'.red + ' web app generator'.yellow.bold + '\n';
   console.log(welcome);
 
   prompts = [];
@@ -44,7 +44,7 @@ DeloitteGenerator.prototype.askFor = function askFor() {
 /**
  * Directory structure
  */
-DeloitteGenerator.prototype.app = function app() {
+Tamagotchi.prototype.app = function app() {
   this.mkdir('app');
   this.mkdir('docs');
 
@@ -69,21 +69,21 @@ DeloitteGenerator.prototype.app = function app() {
 /**
  * NPM deps
  */
-DeloitteGenerator.prototype.package = function() {
+Tamagotchi.prototype.package = function() {
   this.template('_package.json', 'package.json');
 };
 
 /**
  * Grunt
  */
-DeloitteGenerator.prototype.grunt = function() {
+Tamagotchi.prototype.grunt = function() {
   this.template('_gruntfile.js', 'Gruntfile.js');
 };
 
 /**
  * Git
  */
-DeloitteGenerator.prototype.git = function() {
+Tamagotchi.prototype.git = function() {
   this.copy('gitignore', '.gitignore');
   this.copy('gitattributes', '.gitattributes');
 };
@@ -91,7 +91,7 @@ DeloitteGenerator.prototype.git = function() {
 /**
  * Bower
  */
-DeloitteGenerator.prototype.bower = function() {
+Tamagotchi.prototype.bower = function() {
   this.copy('bowerrc', '.bowerrc');
   this.template('_bower.json', 'bower.json');
 };
@@ -99,21 +99,21 @@ DeloitteGenerator.prototype.bower = function() {
 /**
  * JSHint
  */
-DeloitteGenerator.prototype.jshint = function() {
+Tamagotchi.prototype.jshint = function() {
   this.template('_jshintrc', '.jshintrc');
 };
 
 /**
  * Text Editor preferences
  */
-DeloitteGenerator.prototype.editorConfig = function() {
+Tamagotchi.prototype.editorConfig = function() {
   this.copy('editorconfig', '.editorconfig');
 };
 
 /**
  * index.html
  */
-DeloitteGenerator.prototype.index = function() {
+Tamagotchi.prototype.index = function() {
   this.copy('main.js', 'app/main.js');
   this.copy('index.html', 'app/index.html');
 };
@@ -121,7 +121,7 @@ DeloitteGenerator.prototype.index = function() {
 /**
  * Less
  */
-DeloitteGenerator.prototype.less = function() {
+Tamagotchi.prototype.less = function() {
   this.copy('less/application.less', 'app/assets/less/application.less');
   this.copy('less/config.dev.less', 'app/assets/less/config.dev.less');
   this.copy('less/config.less', 'app/assets/less/config.less');
@@ -130,11 +130,11 @@ DeloitteGenerator.prototype.less = function() {
 /**
  * Base documentation
  */
-DeloitteGenerator.prototype.docs = function() {
+Tamagotchi.prototype.docs = function() {
   this.copy('docs/0000-index.md', 'docs/0000-index.md');
   this.copy('docs/0001-first-touch.md', 'docs/0001-first-touch.md');
   this.copy('docs/0002-application-structure.md', 'docs/0002-application-structure.md');
-  this.copy('docs/0003-web-components.md', 'docs/0003-web-components.md');
+  this.copy('docs/0003-components.md', 'docs/0003-web-components.md');
   this.copy('docs/0005-disable-cors-for-services-integration.md', 'docs/0005-disable-cors-for-services-integration.md');
   this.copy('docs/0006-livereload.md', 'docs/0006-livereload.md');
   this.copy('docs/0007-conventions.md', 'docs/0007-conventions.md');

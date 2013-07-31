@@ -16,6 +16,16 @@ On Mac or Linux:
 
     $ git config --global core.autocrlf input
 
+If you need TFS integration, [please check this as well](./0008-git-tfs.md)
+
+## Text editor
+
+By default we use [sublime text editor](http://www.sublimetext.com/) +
+[editorconfig.org](http://editorconfig.org/).
+
+After install sublime, please add
+[editorconfig plugin for sublime](https://github.com/sindresorhus/editorconfig-sublime)
+
 ## JS
 
 ### Code Style
@@ -23,7 +33,7 @@ On Mac or Linux:
 - [Globant style](https://github.com/globant-ui/javascript-style-guide)
 - [YUI documentation style guide](http://yui.github.io/yuidoc/syntax/index.html)
 
-### Sublime
+### Sublime plugins
 
 [Beautifier plugin](https://github.com/jdc0589/JsFormat)
 
@@ -49,7 +59,7 @@ On Mac or Linux:
 
 [JSHint plugin](https://github.com/uipoet/sublime-jshint)
 
-> Use the configuration file (.jshintrc) provided into our project.
+> Please use the configuration file (.jshintrc) provided into our project.
 
 ## CSS/LESS
 
@@ -57,29 +67,42 @@ On Mac or Linux:
 
 [LESS the language](http://lesscss.org/)
 
-### Code Style
+### Code Style & conventions
 
-- [Globant style](https://github.com/globant-ui/css-style-guide)
-- [TopCoat style](https://github.com/topcoat/topcoat/wiki/Coding-Guidelines)
+- [Globant style guide](https://github.com/globant-ui/css-style-guide)
+- [TopCoat style guide](https://github.com/topcoat/topcoat/wiki/Coding-Guidelines)
+- [iunit style guide](https://github.com/csswizardry/CSS-Guidelines)
+- [How to manage hacks - shame.css](http://csswizardry.com/2013/04/shame-css/)
+- [BEM naming convention](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
 
-### Sublime
+### Sublime plugins
 
-[CSS Sorter](http://csscomb.com/)
-[Prefixr](http://wbond.net/sublime_packages/prefixr)
+- [CSS Sorter](http://csscomb.com/)
+- [Prefixr](http://wbond.net/sublime_packages/prefixr)
 
-##Underscore Templates
-Using JST to precompile templates in production.
+### Linters & code analysis
 
-To use templates do the following
+- [csslint](http://csslint.net/)
+- [csscss](http://zmoazeni.github.io/csscss/)
+
+## HTML
+
+### Underscore template
+
+Use the requirejs **jst** plugin, as follow:
+
 ```javascript
-require(['jst!templates/_module.html'],
-    function (template) {
-        template(data)
-    }
-);
+require(['jst!templates/_module.html'], function (template) {
+  var data = {
+    d: 'hello world'
+  };
+
+  return template(data);
+});
 ```
 
-***Filename convention:*** _(filename).html
+***Filename convention:*** _templateName.html
 
-### Sublime
-[EJS](https://github.com/falsefalse/sublime-ejs)
+### Sublime plugins
+
+[EJS template highlighting](https://github.com/falsefalse/sublime-ejs)

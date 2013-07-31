@@ -1,12 +1,12 @@
 # First Touch
 
+**You are the father of your code, as a tamagotchi pet, you will need to care of 
+it.**
+
 ## Basic setup
 
 Before start be sure you already have read all the conventions from
 [here](./0007-conventions.md).
-
-Remember all the code will be under code review. You are the father of your code,
-and the responsible of create maintainable code base.
 
 Because you don't have code in your machine yet, we need to start cloning the
 repository:

@@ -1,12 +1,12 @@
 {
-  "name": "generator-deloitte",
+  "name": "generator-tamagotchi",
   "version": "0.0.0",
-  "description": "A generator for Yeoman",
+  "description": "A Yeoman generator for fun & profit",
   "keywords": [
     "yeoman-generator"
   ],
-  "homepage": "https://github.com/dendril/generator-deloitte",
-  "bugs": "https://github.com/dendril/generator-deloitte/issues",
+  "homepage": "https://github.com/dendril/generator-tamagotchi",
+  "bugs": "https://github.com/dendril/generator-tamagotchi/issues",
   "author": {
     "name": "Facundo Cabrera",
     "email": "cabrerafacundo@gmail.com",
@@ -15,7 +15,7 @@
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/dendril/generator-deloitte.git"
+    "url": "git://github.com/dendril/generator-tamagotchi.git"
   },
   "dependencies": {
     "yeoman-generator": "~0.10.2"

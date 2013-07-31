@@ -3,7 +3,7 @@
 ## MAC
 
 I recommend to install **Google Chrome Canary** so you don't need to run you browser
-in a unsecure way.
+in a insecure way.
 
     open -a "Google Chrome Canary" --args --disable-web-security
 
