@@ -22,7 +22,9 @@
     "grunt-contrib-livereload": "0.1.1",
     "grunt-rev": "~0.1.0",
     "grunt-usemin": "~0.1.10",
-    "grunt-svgmin": "~0.1.0"
+    "grunt-svgmin": "~0.1.0"<% if (ariaLinter) { %>,
+    "grunt-arialinter": "~0.1.5"
+    <% } %>
   },
   "engines": {
     "node": ">=0.8.0"

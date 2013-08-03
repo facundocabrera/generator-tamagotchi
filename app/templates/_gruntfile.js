@@ -303,13 +303,26 @@ module.exports = function(grunt) {
           }
         }
       }
-    }
+    }<% if (ariaLinter) { %>,
+
+    ////
+    // grunt-arialinter will will test the user templates
+    // to see if they have any accesibillity issues
+    ////
+    arialinter: {
+      files: ['<%%= yeoman.dist %>/**/*.html'],
+      options: {
+        templates: true,
+        levels: 'A'
+      }
+    }<% } %>
   });
 
   // Build Task
   grunt.registerTask('build', [
     'clean',
     'build-static',
+    'build-lint',
     'build-images',
     'build-styles',
     'build-js',
@@ -317,40 +330,45 @@ module.exports = function(grunt) {
     'htmlmin'
   ]);
 
-      // build static assets
-      grunt.registerTask('build-static', [
-        'copy'
-      ]);
+  // build static assets
+  grunt.registerTask('build-static', [
+    'copy'
+  ]);
 
-      // build js
-      grunt.registerTask('build-js', [
-        'jshint',        // js validation
-        'useminPrepare', // prepare configuration for cssmin, concat, uglify and requirejs
-        'requirejs',     // require bundling
-        'concat',        // copy all the js files to dist
-        'uglify',        // minify js files
-        'rev:js'         // js version
-      ]);
+  // build js
+  grunt.registerTask('build-js', [
+    'jshint',        // js validation
+    'useminPrepare', // prepare configuration for cssmin, concat, uglify and requirejs
+    'requirejs',     // require bundling
+    'concat',        // copy all the js files to dist
+    'uglify',        // minify js files
+    'rev:js'         // js version
+  ]);
 
-      // build styles
-      grunt.registerTask('build-styles', [
-        'less',   // less to css
-        'cssmin', // css minification
-        'rev:css' // css version
-      ]);
+  // build styles
+  grunt.registerTask('build-styles', [
+    'less',   // less to css
+    'cssmin', // css minification
+    'rev:css' // css version
+  ]);
 
-      // build images
-      grunt.registerTask('build-images', [
-        'imagemin',
-        'svgmin',
-        'rev:images'
-      ]);
+  // build images
+  grunt.registerTask('build-images', [
+    'imagemin',
+    'svgmin',
+    'rev:images'
+  ]);
 
-      // update the urls to the new resources (optimiced ones)
-      grunt.registerTask('build-urls', [
-        'useminPrepare',
-        'usemin'
-      ]);
+  // update the urls to the new resources (optimiced ones)
+  grunt.registerTask('build-urls', [
+    'useminPrepare',
+    'usemin'
+  ]);
+
+  // Lint files
+  grunt.registerTask('build-lint', [
+    <% if (ariaLinter) { %>'arialinter'<% } %>
+  ]);
 
   // Local server with livereload by default
   grunt.registerTask('server', [

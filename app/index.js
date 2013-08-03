@@ -27,6 +27,8 @@ util.inherits(Tamagotchi, yeoman.generators.Base);
  * Directory structure
  */
 Tamagotchi.prototype.app = function app() {
+  var cb = this.async();
+
   this.mkdir('app');
   this.mkdir('docs');
 
@@ -46,6 +48,18 @@ Tamagotchi.prototype.app = function app() {
   this.mkdir('app/assets/fonts');
 
   this.mkdir('app/vendor');
+
+  var prompts = [{
+    type: 'confirm',
+    name: 'ariaLinter',
+    message: 'Would you like to add AriaLinter ?'
+  }];
+
+  this.prompt(prompts, function (props) {
+    this.ariaLinter = props.ariaLinter;
+
+    cb();
+  }.bind(this));
 };
 
 /**
