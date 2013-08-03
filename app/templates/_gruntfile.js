@@ -322,7 +322,6 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean',
     'build-static',
-    'build-lint',
     'build-images',
     'build-styles',
     'build-js',
@@ -332,6 +331,7 @@ module.exports = function(grunt) {
 
   // build static assets
   grunt.registerTask('build-static', [
+    <% if (ariaLinter) { %>'arialinter',<% } %>
     'copy'
   ]);
 
@@ -363,11 +363,6 @@ module.exports = function(grunt) {
   grunt.registerTask('build-urls', [
     'useminPrepare',
     'usemin'
-  ]);
-
-  // Lint files
-  grunt.registerTask('build-lint', [
-    <% if (ariaLinter) { %>'arialinter'<% } %>
   ]);
 
   // Local server with livereload by default
