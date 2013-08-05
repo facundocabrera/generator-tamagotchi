@@ -22,6 +22,14 @@
 
 ## Reverse proxy support (optional)
 
+### Why?
+
+Scenario: You need to hit a remote server where the services are deployed.
+
+![Scenario](https://lh6.googleusercontent.com/-ny8Al6C2dtU/Uf_6YuWHJII/AAAAAAAAKc8/vB8AA0wbufY/w483-h306-no/reverse-proxy.png)
+
+### Configuration example
+
 ![reverse proxy sample](https://lh3.googleusercontent.com/-VsphwK0Q2gc/Uf2dIFBKraI/AAAAAAAAKcc/vvTpvvM6r-M/w686-h217-no/01-reserve-proxy-sample.png)
 
 1 - If you answer **yes** tamagotchi will add support for *reverse proxy* and 
