@@ -1,8 +1,9 @@
 'use strict';
 
-var util = require('util');
-var path = require('path');
-var yeoman = require('yeoman-generator');
+var util = require('util'),
+    path = require('path'),
+    yeoman = require('yeoman-generator'),
+    checker = require('validator').check;
 
 /**
  * @constructor
@@ -22,6 +23,90 @@ function Tamagotchi() {
 }
 
 util.inherits(Tamagotchi, yeoman.generators.Base);
+
+/**
+ * Prompts
+ */
+Tamagotchi.prototype.askFor = function askFor() {
+  var cb = this.async();
+
+  var prompts = [{
+    type: 'confirm',
+    name: 'enableReverseProxy',
+    message: 'Do you need support for cross-origin services?:',
+    default: false
+  }];
+
+  var reverseProxyPrompts = [{
+    type: 'input',
+    name: 'urlPrefix',
+    message: 'Url prefix to match the remote services (start with /):',
+    validate: function (input) {
+      try {
+        checker(input, 'Please enter a valid url prefix').is(/^\/\w+/);
+      } catch (e) {
+        return e.message;
+      }
+      return true;
+    }
+  }, {
+    type: 'input',
+    name: 'host',
+    message: 'Host IP or Domain name:',
+    validate: function (input) {
+      try {
+        checker(input, 'Please enter a valid IP or Domain').notEmpty();
+      } catch (e) {
+        return e.message;
+      }
+      return true;
+    }
+  }, {
+    type: 'input',
+    name: 'port',
+    message: 'Port number',
+    validate: function (input) {
+      try {
+        checker(input, 'Please enter a valid port number (0 to 65535)').isInt().min(0).max(65535);
+      } catch (e) {
+        return e.message;
+      }
+      return true;
+    }
+  }, {
+    type: 'confirm',
+    name: 'https',
+    message: 'Do you use https?',
+    default: false
+  }];
+
+  this.prompt(prompts, function (props) {
+    this.enableReverseProxy = props.enableReverseProxy;
+
+    // Reverse proxy options requires some extra feedback
+    if (this.enableReverseProxy) {
+      this.prompt(reverseProxyPrompts, function (props) {
+
+        this.reverseProxy = {
+          context : props.urlPrefix,
+          host    : props.host,
+          port    : props.port,
+          https   : props.https
+        };
+
+        ////
+        // @TODO learn how async module works and implement this correctly
+        ////
+        cb();
+      }.bind(this));
+    }
+
+    ////
+    // @TODO learn how async module works and implement this correctly
+    ////
+    !this.enableReverseProxy && cb();
+  }.bind(this));
+};
 
 /**
  * Directory structure
@@ -113,14 +198,27 @@ Tamagotchi.prototype.less = function() {
  * Base documentation
  */
 Tamagotchi.prototype.docs = function() {
-  this.copy('docs/0000-index.md', 'docs/0000-index.md');
-  this.copy('docs/0001-first-touch.md', 'docs/0001-first-touch.md');
-  this.copy('docs/0002-application-structure.md', 'docs/0002-application-structure.md');
-  this.copy('docs/0003-components.md', 'docs/0003-web-components.md');
-  this.copy('docs/0005-disable-cors-for-services-integration.md', 'docs/0005-disable-cors-for-services-integration.md');
+  this.copy('docs/0000-index.md',
+            'docs/0000-index.md');
+
+  this.copy('docs/0001-first-touch.md',
+            'docs/0001-first-touch.md');
+
+  this.copy('docs/0002-application-structure.md',
+            'docs/0002-application-structure.md');
+
+  this.copy('docs/0003-components.md',
+            'docs/0003-components.md');
+
+  this.copy('docs/0005-disable-cors-for-services-integration.md',
+            'docs/0005-disable-cors-for-services-integration.md');
+
   this.copy('docs/0006-livereload.md', 'docs/0006-livereload.md');
   this.copy('docs/0007-conventions.md', 'docs/0007-conventions.md');
   this.copy('docs/0008-git-tfs.md', 'docs/0008-git-tfs.md');
+
+  this.copy('docs/0009-effective_bower_for_beginers.md',
+            'docs/0009-effective_bower_for_beginers.md');
 };
 
 // Common JS export
