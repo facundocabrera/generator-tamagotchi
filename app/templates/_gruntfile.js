@@ -16,6 +16,13 @@ var mountFolder = function(connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
 
+<% if (enableReverseProxy) { %>
+//
+// Helper for reverse proxy
+//
+var proxyMiddleware = require('grunt-connect-proxy/lib/utils').proxyRequest;
+<% } %>
+
 module.exports = function(grunt) {
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
@@ -23,7 +30,17 @@ module.exports = function(grunt) {
   // configurable paths
   var yeomanConfig = {
     app: 'app',
-    dist: 'dist'
+    dist: 'dist'<%= enableReverseProxy ? ',' : '' %>
+    <% if (enableReverseProxy) { %>
+    remotes: {
+      proxies: [{
+        context: '<%= reverseProxy.context %>',
+        host: '<%= reverseProxy.host %>',
+        port: <%= reverseProxy.port %>,
+        https: <%= reverseProxy.https ? 'true' : 'false' %>
+      }],
+      appendProxies: false
+    }<% } %>
   };
 
   grunt.initConfig({
@@ -140,7 +157,7 @@ module.exports = function(grunt) {
       }
     },
 
-   ////
+    ////
     // Asset Revving
     // @see https://github.com/cbas/grunt-rev
     ////
@@ -294,6 +311,7 @@ module.exports = function(grunt) {
           // middleware
           middleware: function(connect, options) {
             return [
+              <% if (enableReverseProxy) { %>proxyMiddleware,<% } %>
               mountFolder(connect, yeomanConfig.app),
               // Load the middleware provided by the livereload plugin
               // that will take care of inserting the snippet
@@ -301,7 +319,8 @@ module.exports = function(grunt) {
               connect.static(options.base)
             ];
           }
-        }
+        }<% if (enableReverseProxy) { %>,
+        proxies: yeomanConfig.remotes<% } %>
       }
     }
   });
@@ -354,6 +373,7 @@ module.exports = function(grunt) {
 
   // Local server with livereload by default
   grunt.registerTask('server', [
+    <% if (enableReverseProxy) { %>'configureProxies:all.proxies',<% } %>
     'connect',
      // Starts monitoring the folders and keep Grunt alive
     'watch'
