@@ -30,6 +30,7 @@ module.exports = function(grunt) {
   // configurable paths
   var yeomanConfig = {
     app: 'app',
+    tmp: '.tmp',
     dist: 'dist'<%= enableReverseProxy ? ',' : '' %>
     <% if (enableReverseProxy) { %>
     remotes: {
@@ -48,9 +49,6 @@ module.exports = function(grunt) {
 
     ////
     // Watch
-    //
-    // @todo Review the unification of .tmp folder as a temporal storage for
-    //       this file.
     ////
     watch: {
       options: {
@@ -74,9 +72,6 @@ module.exports = function(grunt) {
 
     ////
     // Less
-    //
-    // @todo Review the unification of .tmp folder as a temporal storage for
-    //       this file.
     ////
     less: {
       dist: {
@@ -84,7 +79,7 @@ module.exports = function(grunt) {
           yuicompress: false
         },
         files: {
-          '<%%= yeoman.app %>/assets/css/main.css': '<%%= yeoman.app %>/assets/less/application.less'
+          '<%%= yeoman.tmp %>/assets/css/main.css': '<%%= yeoman.app %>/assets/less/application.less'
         }
       }
     },
@@ -99,7 +94,7 @@ module.exports = function(grunt) {
           report: 'gzip'
         },
         files: {
-          '<%%= yeoman.dist %>/css/main.css': '<%%= yeoman.app %>/assets/css/main.css'
+          '<%%= yeoman.dist %>/css/main.css': '<%%= yeoman.tmp %>/assets/css/main.css'
         }
       }
     },
@@ -112,7 +107,7 @@ module.exports = function(grunt) {
         files: [{
           dot: true,
           src: [
-            '.tmp',
+            '<%%= yeoman.tmp %>',
             '<%%= yeoman.dist %>/*',
             '!<%%= yeoman.dist %>/.git*'
           ]
@@ -206,6 +201,11 @@ module.exports = function(grunt) {
           cwd: '<%%= yeoman.app %>/assets/images',
           src: '{,*/}*.{png,jpg,jpeg}',
           dest: '<%%= yeoman.dist %>/images'
+        }, {
+          expand: true,
+          cwd: '<%%= yeoman.tmp %>/assets/images',
+          src: '{,*/}*.{png,jpg,jpeg}',
+          dest: '<%%= yeoman.dist %>/images'
         }]
       }
     },
@@ -214,6 +214,11 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: '<%%= yeoman.app %>/assets/images',
+          src: '{,*/}*.svg',
+          dest: '<%%= yeoman.dist %>/images'
+        }, {
+          expand: true,
+          cwd: '<%%= yeoman.tmp %>/assets/images',
           src: '{,*/}*.svg',
           dest: '<%%= yeoman.dist %>/images'
         }]
@@ -247,6 +252,9 @@ module.exports = function(grunt) {
 
     ////
     // Bower conector with Rjs configurations.
+    //
+    // @important This doesn't work at all. At the end all the modules
+    //            configuration will be run by hand.
     ////
     bower: {
       options: {
@@ -312,6 +320,7 @@ module.exports = function(grunt) {
           middleware: function(connect, options) {
             return [
               <% if (enableReverseProxy) { %>proxyMiddleware,<% } %>
+              mountFolder(connect, yeomanConfig.tmp),
               mountFolder(connect, yeomanConfig.app),
               // Load the middleware provided by the livereload plugin
               // that will take care of inserting the snippet
@@ -325,13 +334,19 @@ module.exports = function(grunt) {
     }
   });
 
+  //
   // Build Task
+  //
+  // @important The task build styles needs to be almost at the end because the
+  //            concat configuration loaded from the html file creates a
+  //            temporal file main.css inside dist/
+  //
   grunt.registerTask('build', [
     'clean',
     'build-static',
     'build-images',
-    'build-styles',
     'build-js',
+    'build-styles',
     'build-urls',
     'htmlmin'
   ]);
