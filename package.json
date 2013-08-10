@@ -1,9 +1,20 @@
 {
   "name": "generator-tamagotchi",
-  "version": "0.1.0",
-  "description": "A Yeoman generator for fun & profit",
+  "version": "0.1.1",
+  "description": "Yeoman generator for fun & profit",
   "keywords": [
-    "yeoman-generator"
+    "development",
+    "dev",
+    "build",
+    "tool",
+    "cli",
+    "scaffold",
+    "yeoman",
+    "generator",
+    "reverse-proxy",
+    "webapp",
+    "modern workflows",
+    "spa"
   ],
   "homepage": "https://github.com/dendril/generator-tamagotchi",
   "bugs": "https://github.com/dendril/generator-tamagotchi/issues",
@@ -12,6 +23,12 @@
     "email": "cabrerafacundo@gmail.com",
     "url": "https://github.com/dendril"
   },
+  "contributors": [
+    "Diego Pacheco",
+    "Juan Gauna",
+    "Tomas Campodonico",
+    "Ignacio Rivas <rivasign@gmail.com> (http://ignaciorivas.me/)"
+  ],
   "main": "app/index.js",
   "repository": {
     "type": "git",
@@ -24,9 +41,7 @@
   "engines": {
     "node": ">= 0.10"
   },
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ]
+  "licenses": [{
+    "type": "MIT"
+  }]
 }
