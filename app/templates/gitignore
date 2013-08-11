@@ -1,7 +1,9 @@
+# Remove this if you want to version client side dependencies (not recommended).
+app/vendor
+
+# Node and build ignores
 node_modules
 dist
-test/temp
-.sass-cache
 .tmp
 
 # Common tmp files extensions

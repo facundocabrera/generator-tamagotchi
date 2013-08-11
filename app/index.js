@@ -116,21 +116,35 @@ Tamagotchi.prototype.app = function app() {
   this.mkdir('docs');
 
   this.mkdir('app/controllers');
+  this.copy('.gitkeep', 'app/controllers/.gitkeep');
+
   this.mkdir('app/collections');
+  this.copy('.gitkeep', 'app/collections/.gitkeep');
+
   this.mkdir('app/models');
+  this.copy('.gitkeep', 'app/models/.gitkeep');
+
   this.mkdir('app/views');
+  this.copy('.gitkeep', 'app/views/.gitkeep');
+
   this.mkdir('app/templates');
+  this.copy('.gitkeep', 'app/templates/.gitkeep');
+
   this.mkdir('app/helpers');
+  this.copy('.gitkeep', 'app/helpers/.gitkeep');
 
   this.mkdir('app/components');
+  this.copy('.gitkeep', 'app/components/.gitkeep');
 
   this.mkdir('app/assets');
-  this.mkdir('app/assets/css');
-  this.mkdir('app/assets/images');
-  this.mkdir('app/assets/less');
-  this.mkdir('app/assets/fonts');
 
-  this.mkdir('app/vendor');
+  this.mkdir('app/assets/images');
+  this.copy('.gitkeep', 'app/assets/images/.gitkeep');
+
+  this.mkdir('app/assets/less');
+
+  this.mkdir('app/assets/fonts');
+  this.copy('.gitkeep', 'app/assets/fonts/.gitkeep');
 };
 
 /**
