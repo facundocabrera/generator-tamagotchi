@@ -38,7 +38,7 @@
     "yo": ">=1.0.0-rc.1.1"
   },
   "dependencies": {
-    "yeoman-generator": "~0.12",
+    "yeoman-generator": "~0.13",
     "validator": "~1.4"
   },
   "devDependencies": {
