@@ -19,7 +19,8 @@ describe('Tamagotchi bases', function () {
     helpers.testDirectory(TEST_SANDBOX_DIR, function (err) {
       // Set of files required to startup the generator
       var deps = [
-        '../../app'
+        '../../app',
+        '../../component'
       ];
 
       if (err) {

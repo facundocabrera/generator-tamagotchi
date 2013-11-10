@@ -2,6 +2,7 @@
 
 var util = require('util'),
     path = require('path'),
+    chalk = require('chalk'),
     yeoman = require('yeoman-generator'),
     checker = require('validator').check;
 
@@ -13,13 +14,23 @@ function Tamagotchi() {
 
   this.on('end', function () {
     console.log(
-      '\nPlease run ' + 'npm install & bower install '.yellow.bold + 'to install all the dependencies' + '\n'
+      '\nPlease run ' +
+      chalk.yellow.bold('npm install & bower install ') +
+      'to install all the dependencies' +
+      '\n'
     );
   });
 
-  this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
+  this.pkg = JSON.parse(
+    this.readFileAsString(path.join(__dirname, '../package.json'))
+  );
 
-  console.log('Welcome to '.yellow.bold + 'Tamagotchi'.red + ' web app generator'.yellow.bold + '\n');
+  console.log(
+    chalk.yellow.bold('Welcome to ') +
+    chalk.red('Tamagotchi') +
+    chalk.yellow.bold(' web app generator') +
+    '\n'
+  );
 }
 
 util.inherits(Tamagotchi, yeoman.generators.Base);

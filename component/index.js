@@ -1,10 +1,11 @@
 'use strict';
 
-var util   = require('util');
-var fs     = require('fs');
-var yeoman = require('yeoman-generator');
-
 module.exports = ComponentGenerator;
+
+var util   = require('util'),
+    fs     = require('fs'),
+    yeoman = require('yeoman-generator'),
+    chalk  = require('chalk');
 
 function ComponentGenerator(args, options, config) {
   // By calling `NamedBase` here, we get the argument to the subgenerator call
@@ -12,10 +13,14 @@ function ComponentGenerator(args, options, config) {
   yeoman.generators.NamedBase.apply(this, arguments);
 
   this.on('end', function() {
-    console.log('Creation complete'.yellow.bold);
+    console.log(chalk.yellow.bold('Creation complete'));
   });
 
-  console.log('Creating a ' + 'new component'.yellow.bold + ' ' + this.name.magenta);
+  console.log(
+    'Creating a ' +
+    chalk.yellow.bold('new component') + ' ' +
+    chalk.magenta(this.name)
+  );
 };
 
 util.inherits(ComponentGenerator, yeoman.generators.NamedBase);
@@ -32,8 +37,8 @@ ComponentGenerator.prototype.setup = function() {
     this.destinationRoot(dest);
   } else {
     throw {
-      name: 'Invalid Argument'.yellow.bold,
-      message: 'The Component you want create already exists'.magenta
+      name: chalk.yellow.bold('Invalid Argument'),
+      message: chalk.magenta('The Component you want create already exists')
     };
   }
 };
