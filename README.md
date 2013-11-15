@@ -1,5 +1,7 @@
 # Tamagotchi - The yeoman pet
 
+[![Build Status](https://drone.io/github.com/dendril/generator-tamagotchi/status.png)](https://drone.io/github.com/dendril/generator-tamagotchi/latest)
+
 ## Basic usage
 
 ### WebApp creation
