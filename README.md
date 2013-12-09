@@ -2,6 +2,8 @@
 
 [![Build Status](https://drone.io/github.com/dendril/generator-tamagotchi/status.png)](https://drone.io/github.com/dendril/generator-tamagotchi/latest)
 
+[![Coverage Status](https://coveralls.io/repos/dendril/generator-tamagotchi/badge.png?branch=master)](https://coveralls.io/r/dendril/generator-tamagotchi?branch=master)
+
 ## Basic usage
 
 ### WebApp creation
