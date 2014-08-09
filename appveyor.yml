@@ -1,0 +1,23 @@
+# build version format
+version: "{build}"
+
+# fix lineendings in Windows
+init:
+  - git config --global core.autocrlf input
+
+# what combinations to test
+environment:
+  matrix:
+    - nodejs_version: 0.10
+
+install:
+  - npm install -g grunt-cli
+  - npm install
+
+build: off
+
+test_script:
+  - node --version
+  - npm --version
+  - ps: "npm test # PowerShell" # Pass comment to PS for easier debugging
+  - cmd: grunt test --no-color
