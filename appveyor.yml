@@ -19,4 +19,4 @@ build: off
 test_script:
   - node --version
   - npm --version
-  - cmd: "npm test 2>&1 | % { $_.ToString() }"
+  - cmd: npm test
