@@ -1,6 +1,3 @@
-# build version format
-version: "{build}"
-
 # fix lineendings in Windows
 init:
   - git config --global core.autocrlf input
@@ -9,14 +6,19 @@ init:
 environment:
   matrix:
     - nodejs_version: 0.10
+    - nodejs_version: 0.11
+
+platform:
+  - x64
+  - x86
 
 install:
   - npm install -g grunt-cli
   - npm install
-
-build: off
-
-test_script:
   - node --version
   - npm --version
-  - cmd: npm test
+  - npm run ci-test
+
+build: OFF
+test: OFF
+deploy: OFF

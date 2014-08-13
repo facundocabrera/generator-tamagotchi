@@ -35,7 +35,8 @@
     "url": "git://github.com/dendril/generator-tamagotchi.git"
   },
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "mocha -R spec",
+    "ci-test": "mocha -R spec -C -t 10s"
   },
   "peerDependencies": {
     "yo": ">=1.0.0-rc.1.1"
