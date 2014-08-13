@@ -6,19 +6,20 @@ init:
 environment:
   matrix:
     - nodejs_version: 0.10
-    - nodejs_version: 0.11
 
 platform:
-  - x64
   - x86
 
+# scripts that run after cloning repository
 install:
   - npm install -g grunt-cli
   - npm install
   - node --version
   - npm --version
-  - npm run ci-test
+
+# to run your custom scripts instead of automatic tests
+test_script:
+  - npm run appveyor
 
 build: OFF
-test: OFF
 deploy: OFF

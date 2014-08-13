@@ -13,10 +13,10 @@ function ComponentGenerator(args, options, config) {
   yeoman.generators.NamedBase.apply(this, arguments);
 
   this.on('end', function() {
-    console.log(chalk.yellow.bold('Creation complete'));
+    this.log(chalk.yellow.bold('Creation complete'));
   });
 
-  console.log(
+  this.log(
     'Creating a ' +
     chalk.yellow.bold('new component') + ' ' +
     chalk.magenta(this.name)

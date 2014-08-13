@@ -13,7 +13,7 @@ function Tamagotchi() {
   yeoman.generators.Base.apply(this, arguments);
 
   this.on('end', function () {
-    console.log(
+    this.log(
       '\nPlease run ' +
       chalk.yellow.bold('npm install & bower install ') +
       'to install all the dependencies' +
@@ -25,7 +25,7 @@ function Tamagotchi() {
     this.readFileAsString(path.join(__dirname, '../package.json'))
   );
 
-  console.log(
+  this.log(
     chalk.yellow.bold('Welcome to ') +
     chalk.red('Tamagotchi') +
     chalk.yellow.bold(' web app generator') +
