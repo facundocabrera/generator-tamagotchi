@@ -1,6 +1,8 @@
 # Tamagotchi - The yeoman pet
 
-[![Build Status](https://drone.io/github.com/dendril/generator-tamagotchi/status.png)](https://drone.io/github.com/dendril/generator-tamagotchi/latest)
+[![Build status by drone](https://drone.io/github.com/dendril/generator-tamagotchi/status.png)](https://drone.io/github.com/dendril/generator-tamagotchi/latest)
+
+[![Build status by appveyor](https://ci.appveyor.com/api/projects/status/guy8nd3jgwimnbwh)](https://ci.appveyor.com/project/dendril/generator-tamagotchi)
 
 [![Coverage Status](https://coveralls.io/repos/dendril/generator-tamagotchi/badge.png?branch=master)](https://coveralls.io/r/dendril/generator-tamagotchi?branch=master)
 
@@ -36,10 +38,10 @@ Scenario: You need to hit a remote server where the services are deployed.
 
 ![reverse proxy sample](https://lh3.googleusercontent.com/-VsphwK0Q2gc/Uf2dIFBKraI/AAAAAAAAKcc/vvTpvvM6r-M/w686-h217-no/01-reserve-proxy-sample.png)
 
-1 - If you answer **yes** tamagotchi will add support for *reverse proxy* and 
+1 - If you answer **yes** tamagotchi will add support for *reverse proxy* and
     will make some questions.
 
-2 - Generally there is a prefix in the URLs which helps you to separate the 
+2 - Generally there is a prefix in the URLs which helps you to separate the
 webapp from the services.
 
 For example:
@@ -48,7 +50,7 @@ For example:
 
 ***In this case the URL prefix is /services***
 
-3 - In the example I'm using **100.200.50.10** as backend, but my webapp is 
+3 - In the example I'm using **100.200.50.10** as backend, but my webapp is
 running in my local computer *(for example 192.168.1.2)*.
 
 4 - For the port, I'm using 8081, but it could be any valid port number.
