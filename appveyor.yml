@@ -17,9 +17,18 @@ install:
   - node --version
   - npm --version
 
+before_test:
+  - echo Before tests!
+
 # to run your custom scripts instead of automatic tests
 test_script:
-  - npm run appveyor
+  - cmd: npm run appveyor
+
+after_test:
+  - ps: ./ci/appveyor.ps1
+
+artifacts:
+  - path: tests.json
 
 build: OFF
 deploy: OFF
