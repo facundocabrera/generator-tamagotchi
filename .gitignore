@@ -3,6 +3,7 @@ dist
 test/temp
 .sass-cache
 .tmp
+tests.json
 
 # Common tmp files extensions
 lib-cov
